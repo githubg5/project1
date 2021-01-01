@@ -24,7 +24,10 @@ import {
   Switch,
   Tooltip,
   Dialog,
-  Message
+  Select,
+  Option,
+  Message,
+  MessageBox
 } from 'element-ui'
 
 Vue.use(Avatar)
@@ -51,5 +54,8 @@ Vue.use(Pagination)
 Vue.use(Switch)
 Vue.use(Tooltip)
 Vue.use(Dialog)
+Vue.use(Select)
+Vue.use(Option)
 
 Vue.prototype.$message = Message
+Vue.prototype.$confirm = MessageBox.confirm

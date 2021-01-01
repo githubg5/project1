@@ -1,9 +1,8 @@
 <template>
-  <!-- home -->
+  <!-- 首页 -->
   <div class="home">
-    <!-- el-container -->
     <el-container>
-      <!-- el-header -->
+      <!-- 头部信息 -->
       <el-header>
         <h1>
           <el-image :src="require('@/assets/logo.png')"></el-image>
@@ -11,9 +10,8 @@
         </h1>
         <el-button type="info" @click="logout">退出</el-button>
       </el-header>
-      <!-- el-container -->
       <el-container>
-        <!-- el-aside -->
+        <!-- 左侧菜单 -->
         <el-aside :width="isCollapse ? '64px' : '200px'">
           <div class="collapse" @click="setCollapse">|||</div>
           <el-menu :collapse="isCollapse" background-color="#333744" text-color="#fff" :default-active="active" unique-opened router :collapse-transition="false">
@@ -31,7 +29,7 @@
             </el-submenu>
           </el-menu>
         </el-aside>
-        <!-- el-main -->
+        <!-- 主体内容 -->
         <el-main>
           <router-view></router-view>
         </el-main>
@@ -62,19 +60,23 @@ export default {
     this.active = sessionStorage.getItem('active')
   },
   methods: {
+    // 退出
     logout () {
       sessionStorage.clear()
       this.$router.push('/')
     },
+    // 获取菜单
     async getMenu () {
       const { data: res } = await this.$axios.get('menus')
       if (res.meta.status !== 200) return this.$message.error(res.meta.msg)
       this.menu = res.data
     },
+    // 当前激活菜单
     setActive (index) {
       sessionStorage.setItem('active', index)
       this.active = index
     },
+    // 菜单展开收缩
     setCollapse () {
       this.isCollapse = !this.isCollapse
     }

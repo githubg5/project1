@@ -1,7 +1,6 @@
 <template>
-  <!-- login -->
+  <!-- 登录 -->
   <div class="login">
-    <!-- el-card -->
     <el-card shadow="hover">
       <el-avatar :size="150" :src="require('@/assets/logo.png')"></el-avatar>
       <el-form :model="loginForm" :rules="loginRules" ref="loginRef">
@@ -42,6 +41,7 @@ export default {
     }
   },
   methods: {
+    // 登录
     login () {
       this.$refs.loginRef.validate(async (valid) => {
         if (!valid) return
@@ -53,6 +53,7 @@ export default {
         this.$router.push('/home')
       })
     },
+    // 重置表单
     reset () {
       this.$refs.loginRef.resetFields()
     }

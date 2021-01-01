@@ -1,5 +1,5 @@
 <template>
-  <!-- welcome -->
+  <!-- 欢迎 -->
   <div class="welcome">
     <h2>Welcome,{{ username }}!</h2>
     <p>欢迎使用商城后台管理系统！</p>
