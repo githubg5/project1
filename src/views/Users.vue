@@ -212,7 +212,7 @@ export default {
     },
     // 添加用户
     addUser () {
-      this.$refs.addUserRef.validate(async (valid) => {
+      this.$refs.addUserRef.validate(async valid => {
         if (!valid) return
         const { data: res } = await this.$axios.post('users', this.addUserForm)
         if (res.meta.status !== 201) return this.$message.error(res.meta.msg)
@@ -234,7 +234,7 @@ export default {
     },
     // 修改所选编辑用户信息
     editUser () {
-      this.$refs.editUserRef.validate(async (valid) => {
+      this.$refs.editUserRef.validate(async valid => {
         if (!valid) return
         const { data: res } = await this.$axios.put(`users/${this.editUserForm.id}`, {
           email: this.editUserForm.email,
@@ -248,7 +248,7 @@ export default {
     },
     // 删除所选用户
     async removeUser (id) {
-      const confirmValue = await this.$confirm('此操作将永久删除该文件，是否继续？', '提示', {
+      const confirmValue = await this.$confirm('此操作将永久删除该用户，是否继续？', '提示', {
         type: 'warning',
         cancelButtonText: '取消',
         confirmButtonText: '确定'
